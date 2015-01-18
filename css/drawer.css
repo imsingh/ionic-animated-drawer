@@ -1,0 +1,35 @@
+drawer {
+  display: block;
+  position: fixed;
+  top:44px;
+  width: 270px;
+  height: 100%;
+  z-index: 100;
+}
+
+drawer.animate {
+  -webkit-transition: 0.4s all ease-in-out;
+  transition: 0.4s all ease-in-out;
+}
+
+.animate {
+  -webkit-transition: 0.4s all ease-in-out;
+  transition: 0.4s all ease-in-out;
+}
+
+.drawerToggle {
+  right:25px;
+}
+
+drawer.left {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  box-shadow: 1px 0px 10px rgba(0,0,0,0.3);
+}
+drawer.right {
+  right: 0;
+  top: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  box-shadow: -1px 0px 10px rgba(0,0,0,0.3);
+}
