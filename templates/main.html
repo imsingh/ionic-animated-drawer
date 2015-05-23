@@ -5,23 +5,30 @@
       <button class="button button-icon icon ion-navicon" drawer-toggle animate="true">
       </button>
    </ion-nav-buttons>
-    </ion-nav-bar>
+   <ion-nav-title>
+    Ionic App
+   </ion-nav-title>
+  </ion-nav-bar>
 
   <ion-side-menu-content>
-      <ion-view title="Ionic App">
-        <ion-content>
+       <ion-view>
+        <ion-content class="has-header">
         </ion-content>
       </ion-view>
+
   </ion-side-menu-content>
 
-  <!-- Left menu -->
-  <drawer side="left">  
-	  	<ion-nav-bar  class="bar-stable nav-title-slide-ios7 has-tabs-top"> 
+ <drawer side="left">  
+      <ion-nav-bar class="bar-stable nav-title-slide-ios7 has-tabs-top"> 
       </ion-nav-bar>
-  		
-        <ion-view title="Menu">
+      
+      <ion-nav-view>
+        <ion-view title="Cool">
           <ion-content>
           </ion-content>
         </ion-view>
+      </ion-nav-view>
   </drawer>
+
+
 </ion-side-menus>
