@@ -172,7 +172,7 @@ angular.module('ionic.contrib.drawer', ['ionic'])
     drawerState = value;
   };
 
-  this.animateAnimated = function($scope, status){
+  this.animateTogglers = function($scope, status){
     var elements = document.getElementsByClassName("animate");
     for (var e = 0; e<elements.length; e++){
       var el = elements[e];
@@ -242,7 +242,7 @@ angular.module('ionic.contrib.drawer', ['ionic'])
       }
       
       $element.bind('click', function(){
-          ctrl.animateAnimated($scope, $scope.toggleDrawer());
+          ctrl.animateTogglers($scope, $scope.toggleDrawer());
        });
     }
   };
