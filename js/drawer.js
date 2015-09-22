@@ -171,6 +171,21 @@ angular.module('ionic.contrib.drawer', ['ionic'])
   this.setState = function(value) {
     drawerState = value;
   };
+
+  this.animateAnimated = function($scope, status){
+    var elements = document.getElementsByClassName("animate");
+    for (var e = 0; e<elements.length; e++){
+      var el = elements[e];
+      if (el.className.indexOf("drawerToggle") > -1){
+         if(status === "open") {
+            el.style.transform = el.style.webkitTransform = 'translate3d(' + -5 + 'px, 0, 0)';
+          } else {
+            el.style.transform = el.style.webkitTransform = 'translate3d(' + 0 + 'px, 0, 0)';
+          }
+      }
+      
+    }
+  };
 }])
 
 .directive('drawer', ['$rootScope', '$ionicGesture', function($rootScope, $ionicGesture) {
@@ -219,23 +234,16 @@ angular.module('ionic.contrib.drawer', ['ionic'])
 .directive('drawerToggle', function() {
   return {
     restrict: 'A',
-    link: function($scope, $element, $attrs) {
+    controller: 'drawerCtrl',
+    link: function($scope, $element, $attrs, ctrl) {
       var el = $element[0];
       if($attrs.animate === "true") {
         $element.addClass('animate drawerToggle');
       }
       
       $element.bind('click', function(){
-        if($attrs.animate === "true") {
-          if($scope.toggleDrawer() === "open") {
-            el.style.transform = el.style.webkitTransform = 'translate3d(' + -5 + 'px, 0, 0)';
-          } else {
-            el.style.transform = el.style.webkitTransform = 'translate3d(' + 0 + 'px, 0, 0)';
-          }   
-        } else {
-            $scope.toggleDrawer();
-        }
-      });
+          ctrl.animateAnimated($scope, $scope.toggleDrawer());
+       });
     }
   };
 })
